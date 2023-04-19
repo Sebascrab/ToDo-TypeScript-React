@@ -23,6 +23,11 @@ const SingleTodo = ({ todo, todos, setTodos }: Props) => {
     );
   };
 
+//   function to delete todo
+  const handleDelete = (id: number) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
   return (
     <form className="todos__single">
       {todo.isDone ? (
@@ -35,7 +40,7 @@ const SingleTodo = ({ todo, todos, setTodos }: Props) => {
         <span className="icon">
           <FaUserEdit />
         </span>
-        <span className="icon">
+        <span className="icon" onClick={() => handleDelete(todo.id)}>
           <RiDeleteBin5Fill />
         </span>
         <span className="icon" onClick={() => handleDone(todo.id)}>
