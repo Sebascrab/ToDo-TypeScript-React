@@ -2,7 +2,7 @@
 
 .input {
     display: flex;
-    width: 90%;
+    width: 95%;
     position: relative;
     align-items: center;
 }
@@ -46,11 +46,26 @@
     box-shadow: 0 0 5px gray;
 }
 
+.container {
+    display: flex;
+    width: 95%;
+    margin-top: 10px;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
 .todos {
     display: flex;
-    justify-content: space-evenly;
-    width: 90%;
-    flex-wrap: wrap;
+    flex-direction: column;
+    width: 47.5%;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: seashell;
+}
+
+.todos__heading {
+    font-size: 30px;
+    color: #000;
 }
 
 .todos__single {
@@ -60,6 +75,12 @@
     padding: 20px;
     margin-top: 15px;
     background-image: url("https://img.freepik.com/free-photo/white-plaster-texture_1194-5600.jpg?size=626&ext=jpg&ga=GA1.2.476496618.1681881452&semt=ais");
+    transition: 0.2s;
+}
+
+.todos__single:hover {
+    box-shadow: 0 0 5px #000;
+    transform: scale(1.03);
 }
 
 .todos__single--text {
@@ -79,12 +100,6 @@
  cursor: pointer;
 }
 
-@media (max-width: 1200px) {
-    .todos__single {
-        width: 40%;
-    }
-}
-
 @media (max-width: 700px) {
     .input {
         width: 95%;
@@ -92,10 +107,15 @@
 
     .todos {
         width: 95%;
-
+        margin-bottom: 10PX;
     }
 
-    .todos__single {
-        width: 100%;
+    .container {
+        width: 95%;
+        flex-direction: column;
     }
+}
+
+.remove {
+    background-color: beige;
 }
