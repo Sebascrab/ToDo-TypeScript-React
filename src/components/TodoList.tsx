@@ -11,35 +11,52 @@ interface Props {
   setCompletedTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
 }
 
-const TodoList: React.FC<Props> = ({ todos, setTodos }) => {
+const TodoList: React.FC<Props> = ({ todos, setTodos, completedTodos, setCompletedTodos }) => {
   return (
     <div className="container">
       <Droppable droppableId="TodosList">
         {(provided) => (
-          <div className="todos" ref={provided.innerRef} {...provided.droppableProps}>
+          <div
+            className="todos"
+            ref={provided.innerRef}
+            {...provided.droppableProps}
+          >
             <span className="todos__heading">Active Todos</span>
-            {todos.map((todo) => (
+            {todos.map((todo, index) => (
               <SingleTodo
+              index={index}
                 todo={todo}
                 todos={todos}
                 key={todo.id}
                 setTodos={setTodos}
               />
             ))}
+            {provided.placeholder}
           </div>
         )}
       </Droppable>
-      <div className="todos remove">
-        <span className="todos__heading">Completed Todos</span>
-        {todos.map((todo) => (
-          <SingleTodo
-            todo={todo}
-            todos={todos}
-            key={todo.id}
-            setTodos={setTodos}
-          />
-        ))}
-      </div>
+
+      <Droppable droppableId="TodosRemove">
+        {(provided) => (
+          <div
+            className="todos remove"
+            ref={provided.innerRef}
+            {...provided.droppableProps}
+          >
+            <span className="todos__heading">Completed Todos</span>
+            {completedTodos.map((todo, index) => (
+              <SingleTodo
+              index={index}
+                todo={todo}
+                todos={completedTodos}
+                key={todo.id}
+                setTodos={setCompletedTodos}
+              />
+            ))}
+            {provided.placeholder}
+          </div>
+        )}
+      </Droppable>
     </div>
   );
 };
