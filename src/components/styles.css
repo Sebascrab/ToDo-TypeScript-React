@@ -119,3 +119,11 @@
 .remove {
     background-color: beige;
 }
+
+.dragactive {
+    background-color: coral;
+}
+
+.dragcomplete {
+    background-color: green;
+}
