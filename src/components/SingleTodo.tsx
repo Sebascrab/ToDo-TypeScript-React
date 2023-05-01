@@ -4,7 +4,6 @@ import { FaUserEdit } from "react-icons/fa";
 import { RiDeleteBin5Fill } from "react-icons/ri";
 import { MdDoneOutline } from "react-icons/md";
 import "./styles.css";
-import TodoList from "./TodoList";
 import { Draggable } from "react-beautiful-dnd";
 
 type Props = {
